@@ -56,6 +56,7 @@ namespace MongoDriver.Facade
         /// Ensures that the database for the context exists. If it exists, get the database,
         /// If it does not exist then the new database is created.
         /// </summary>
+        /// /// <param name="databaseName">Database name to be removed.</param>
         /// <returns>Database (IMongoDatabase).</returns>
         private IMongoDatabase GetOrCreateDatabase(string databaseName)
         {
@@ -74,8 +75,7 @@ namespace MongoDriver.Facade
         /// <summary>
         /// Create all defined collection if they doesn't exists in mongo database.
         /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        private void CreateDefinedCollectionsIfNotExists(CancellationToken cancellationToken = default)
+        private void CreateDefinedCollectionsIfNotExists()
         {
             foreach (var item in CollectionConfigurations)
             {
@@ -83,7 +83,7 @@ namespace MongoDriver.Facade
                 {
                     try
                     {
-                        Database.CreateCollection(item.Key, item.Value, cancellationToken);
+                        Database.CreateCollection(item.Key, item.Value);
                         Collections.Add(item.Key);
                     }
                     catch (Exception ex)

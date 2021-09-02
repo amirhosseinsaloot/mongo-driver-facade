@@ -22,12 +22,12 @@ Install the standard Nuget package into your ASP.NET Core application.
 
 Via package manager:
 ```
-Install-Package MongoDriver.Facade -Version 1.0.2
+Install-Package MongoDriver.Facade -Version 1.0.3
 ```
 
 Via .NET CLI:
 ```
-dotnet add package MongoDriver.Facade --version 1.0.2
+dotnet add package MongoDriver.Facade --version 1.0.3
 ```
 
 Via Paket CLI:

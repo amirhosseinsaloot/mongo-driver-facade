@@ -14,7 +14,7 @@ namespace MongoDriver.Facade
         /// Get all defined collection with their configuration.
         /// </summary>
         /// <returns>Key value pairs that key represents type of collection and value represents configuration of collection</returns>
-        public Dictionary<string, CreateCollectionOptions> GetCollections()
+        internal Dictionary<string, CreateCollectionOptions> GetCollections()
         {
             var collectionWithConfiguration = new Dictionary<string, CreateCollectionOptions>();
 

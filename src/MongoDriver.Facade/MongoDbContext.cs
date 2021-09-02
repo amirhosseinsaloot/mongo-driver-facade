@@ -38,8 +38,14 @@ namespace MongoDriver.Facade
         /// Initializes a new instance of the MongoDBContext class.
         /// </summary>
         /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
+        /// <exception>Exception occured when MongoSettings (in appsettings.json) has not correct format in appsettings.json.</exception>
         public MongoDbContext(IConfiguration configuration)
         {
+            if (configuration.GetSection("MongoSettings:ConnectionString").Value is null || configuration.GetSection("MongoSettings:Database").Value is null)
+            {
+                throw new Exception("Put MongoSettings in appsettings.json correctly.");
+            }
+
             Client = new MongoClient(configuration.GetSection("MongoSettings:ConnectionString").Value);
             Database = GetOrCreateDatabase(configuration.GetSection("MongoSettings:Database").Value);
             Collections = GetDbCollections();

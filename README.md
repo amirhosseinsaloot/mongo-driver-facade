@@ -17,7 +17,24 @@ MongoDbContext manages client connection to database. Also, it automatically cre
 Getting Started
 ---------------
 
-## 1.
+## 1. Install Package:
+Install the standard Nuget package into your ASP.NET Core application.
+
+Via package manager:
+```
+Install-Package MongoDriver.Facade -Version 1.0.0
+```
+
+Via .NET CLI:
+```
+dotnet add package MongoDriver.Facade --version 1.0.0
+```
+
+Via Paket CLI:
+```
+paket add MongoDriver.Facade --version 1.0.0
+```
+
 ## 2. appsettings.json
 Add MongoSettings section to appsettings.json:
 ```

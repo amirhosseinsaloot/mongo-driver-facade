@@ -32,7 +32,7 @@ dotnet add package MongoDriver.Facade --version 1.0.3
 
 Via Paket CLI:
 ```
-paket add MongoDriver.Facade --version 1.0.2
+paket add MongoDriver.Facade --version 1.0.3
 ```
 
 ## 2. appsettings.json

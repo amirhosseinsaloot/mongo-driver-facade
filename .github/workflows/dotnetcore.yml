@@ -1,0 +1,29 @@
+name: MongoDb Driver Facade
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mongodb-version: ['4.0', '4.2', '4.4']
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.6.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+
+    - name: Build with dotnet
+      run: dotnet build ./MongoDriver.Facade.sln --configuration Release
+    
+    - name: Test with dotnet
+      run: dotnet test ./MongoDriver.Facade.sln --configuration Release

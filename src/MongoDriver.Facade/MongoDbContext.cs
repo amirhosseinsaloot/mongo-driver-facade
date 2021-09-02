@@ -38,7 +38,7 @@ namespace MongoDriver.Facade
         /// <summary>
         /// Initializes a new instance of the MongoDBContext class.
         /// </summary>
-        /// <param name="mongoConnection">MongoDB connetion information.</param>
+        /// <param name="configuration">Represents a set of key/value application configuration properties.</param>
         public MongoDbContext(IConfiguration configuration)
         {
             Client = new MongoClient(configuration.GetSection("MongoSettings:ConnectionString").Value);

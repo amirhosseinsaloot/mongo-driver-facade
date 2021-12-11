@@ -11,8 +11,8 @@ What is the MongoDriver.Facade?
 =====================
 In short MongoDriver.Facade implements facade pattern on the [MongoDb C# driver](https://github.com/mongodb/mongo-csharp-driver).
 
-Actually MongoDriver.Facade makes it easy for you to work with MongoDb through a interface named MongoDbContext.
-MongoDbContext manages client connection to database. Also, it automatically creates database and collections (with their configuration) based on your models.
+Actually MongoDriver.Facade makes it easy for you to work with MongoDb through an interface named MongoDbContext.
+MongoDbContext manages the client connection to database. Also, it automatically creates the database and collections (with their configuration) based on your models.
 
 Getting Started
 ---------------

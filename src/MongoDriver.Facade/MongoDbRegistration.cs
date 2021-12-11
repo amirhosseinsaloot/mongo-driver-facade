@@ -1,36 +1,35 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MongoDriver.Facade
+namespace MongoDriver.Facade;
+
+/// <summary>
+/// Represents Extension methods on IServiceCollection.
+/// </summary>
+public static class MongoDbRegistration
 {
     /// <summary>
-    /// Represents Extension methods on IServiceCollection.
+    /// Register the MongoDbContext.
     /// </summary>
-    public static class MongoDbRegistration
+    /// <param name="services">
+    /// Microsoft.Extensions.DependencyInjection
+    /// Specifies the contract for a collection of service descriptors.
+    /// </param>
+    public static void AddMongoDbContext(this IServiceCollection services)
     {
-        /// <summary>
-        /// Register the MongoDbContext.
-        /// </summary>
-        /// <param name="services">
-        /// Microsoft.Extensions.DependencyInjection
-        /// Specifies the contract for a collection of service descriptors.
-        /// </param>
-        public static void AddMongoDbContext(this IServiceCollection services)
-        {
-            services.AddSingleton<MongoDbContext>();
-        }
+        services.AddSingleton<MongoDbContext>();
+    }
 
-        /// <summary>
-        /// Register the MongoDbContext.
-        /// </summary>
-        /// <typeparam name="TMongoDbContext">Represent the class that inherited from MongoDbContext.</typeparam>
-        /// <param name="services">
-        /// Microsoft.Extensions.DependencyInjection
-        /// Specifies the contract for a collection of service descriptors.
-        /// </param>
-        public static void AddMongoDbContext<TMongoDbContext>(this IServiceCollection services) where TMongoDbContext : MongoDbContext
-        {
-            services.AddSingleton<MongoDbContext>();
-            services.AddSingleton<TMongoDbContext>();
-        }
+    /// <summary>
+    /// Register the MongoDbContext.
+    /// </summary>
+    /// <typeparam name="TMongoDbContext">Represent the class that inherited from MongoDbContext.</typeparam>
+    /// <param name="services">
+    /// Microsoft.Extensions.DependencyInjection
+    /// Specifies the contract for a collection of service descriptors.
+    /// </param>
+    public static void AddMongoDbContext<TMongoDbContext>(this IServiceCollection services) where TMongoDbContext : MongoDbContext
+    {
+        services.AddSingleton<MongoDbContext>();
+        services.AddSingleton<TMongoDbContext>();
     }
 }

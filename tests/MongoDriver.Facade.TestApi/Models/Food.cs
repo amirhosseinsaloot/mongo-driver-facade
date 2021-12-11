@@ -1,9 +1,8 @@
-﻿namespace MongoDriver.Facade.TestApi.Models
-{
-    public class Food : MongoDbCollection
-    {
-        public string Foodname { get; set; }
+﻿namespace MongoDriver.Facade.TestApi.Models;
 
-        public string Price { get; set; }
-    }
+public class Food : MongoDbCollection
+{
+    public string Foodname { get; set; }
+
+    public string Price { get; set; }
 }
